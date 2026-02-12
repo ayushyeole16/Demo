@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: user-service
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: yashrgosavi@gmail.com
+    password: spsv nutc hyha eyaz  # NOT your normal Gmail password
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+      mail.debug: true
+    default-encoding: UTF-8
+
+  security:
+    user:
+      name: admin
+      password: admin
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/userservice?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: root
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    # You can remove database-platform for Hibernate 6+; it auto-detects MySQL.
+    # database-platform: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: 8000
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
